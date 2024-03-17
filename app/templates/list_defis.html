@@ -1,0 +1,36 @@
+
+{% block content %}
+<div class="container">
+    <h2>Liste des défis</h2>
+    <a class="btn btn-primary mb-3" href="{% url 'add_defi' %}">Ajouter</a>
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Date de publication</th>
+                    <th scope="col">Date limite</th>
+                    <th scope="col">Statut</th>
+                    <th scope="col">Organisateur</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for defi in defis %}
+                <tr>
+                    <td>{{ defi.titre_defi }}</td>
+                    <td>{{ defi.date_publication }}</td>
+                    <td>{{ defi.date_limite }}</td>
+                    <td>{{ defi.statut }}</td>
+                    <td>{{ defi.organisateur }}</td>
+                    <td>
+                        <a href="{% url 'edit_defi' defi.id_defi %}" class="btn btn-primary btn-sm">Modifier</a>
+                        <a href="{% url 'delete_defi' defi.id_defi %}" class="btn btn-danger btn-sm">Supprimer</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer une équipe</title>
+    <style>
+        .custom-input-width {
+            min-width: 200px; /* Largeur minimale de l'input texte */
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+</head>
+<body>
+    <div class="container">
+        
+        <div class="box">
+            <h2 class="title">Créer une équipe</h2>
+            <form method="post" action="{% url 'creer_equipe' %}">
+                {% csrf_token %}
+                <div class="columns is-mobile">
+                    <div class="column">
+                        <div class="field">
+                            <label class="label" for="id_nom_equipe">Nom de l'équipe:</label>
+                            <div class="control">
+                                <input type="text" class="input is-link custom-input-width" id="id_nom_equipe" name="nom_equipe">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="columns is-mobile">
+                    <div class="column">
+                        <div class="select is-link">
+                            <label class="label" for="id_leader">Leader:</label>
+                            <select class="form-control" id="id_leader" name="leader">
+                                <option value="">Sélectionner un leader</option>
+                                {% for etudiant in etudiants %}
+                                    <option value="{{ etudiant.user_id }}" class="option-noir">{{ etudiant.user.username }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="select is-link">
+                            <label class="label" for="id_adjoint">Adjoint:</label>
+                            <select class="form-control" id="id_adjoint" name="adjoint">
+                                <option value="">Sélectionner un adjoint</option>
+                                {% for etudiant in etudiants %}
+                                    <option value="{{ etudiant.user_id }}" class="option-noir">{{ etudiant.user.username }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+    
+                {% for i in "1234" %}
+                <div class="columns is-mobile">
+                    <div class="column">
+                        <div class="select is-link">
+                            <label class="label" for="id_membre{{ i }}">Membre {{ i }}:</label>
+                            <select class="form-control" id="id_membre{{ i }}" name="membre{{ i }}">
+                                <option value="">Sélectionner membre {{ i }}</option>
+                                {% for etudiant in etudiants %}
+                                    <option value="{{ etudiant.user_id }}" class="option-noir">{{ etudiant.user.username }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+    
+                <button type="submit" class="button is-primary">Créer l'équipe</button>
+            </form>
+        </div>
+    </div>

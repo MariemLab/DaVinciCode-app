@@ -1,0 +1,57 @@
+/* Style du corps de la page */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+/* Style des messages d'alerte */
+.messages {
+  list-style: none;
+  padding: 10px;
+  margin: 10px;
+}
+
+.messages li {
+  margin-bottom: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+/* Style du tableau */
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style des en-têtes de tableau */
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #98d361;
+  color: #fff;
+}
+
+/* Style des lignes impaires du tableau */
+tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+/* Style des liens dans les cellules du tableau */
+td a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Effet au survol des liens */
+td a:hover {
+  text-decoration: underline;
+}

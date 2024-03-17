@@ -1,0 +1,14 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <h2>Modifier le défi</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Enregistrer les modifications</button>
+    </form>
+</body>
+</html>
